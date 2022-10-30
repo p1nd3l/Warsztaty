@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Zgadnę liczbę!{% endblock %}
+{% block content %}
+    <form action="/" method="post"><br>
+        <p align="center"><img src="https://www.fluentu.com/blog/wp-content/uploads/2016/09/thinking-in-a-foreign-language-e1479154410182.png" width="500" height="333"></p>
+        <p align="center"><strong>Zagrajmy w grę!</strong></p>
+        <p align="center">Zasady są proste. Ty Pomyśl liczbę od <b>0</b> do <b>1000</b>. <br>
+            A ja w <b>10</b> ruchach ją zgadnę.</p>
+        <p align="center"></p>
+        <input type="hidden" name="min" value="{{ 0 }}">
+        <input type="hidden" name="max" value="{{ 1000 }}">
+        <p align="center"><button type="submit" name="play">Start!</button> </p>
+    </form>
+{% endblock %}

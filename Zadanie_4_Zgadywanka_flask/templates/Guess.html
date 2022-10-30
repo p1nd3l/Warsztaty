@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Guess..</title>
+</head>
+<body>
+{% if method == "POST" %}
+    {% if choice == "Zgadłeś!" %}
+        <br><p align="center"><b>Wygrałem!</b></p>
+        <p align="center"><b>Twoja liczba to: {{ guess }}</b></p>
+        <p align="center"><img src="https://memy.pl/show/big/uploads/Post/10546/14407502115281.jpg" width="700" height="393"></p>
+        <form action="/" method="GET">
+        <p align="center"><input type="submit"  value="Jeszcze raz!"></p>
+        </form>
+    {% else %}
+
+        <p align="center"><img src="https://static.wikia.nocookie.net/phobia/images/6/61/Shock.jpg" width="640" height="480"></p><br>
+        <p align="center"><label>Czy twoja liczba to: {{ guess }} </label></p><br>
+        <form action="/" method="POST">
+            <p align="center"><input type="submit" name="choice" value="Zgadłeś!"></p>
+            <p align="center"><input type="submit" name="choice" value="Więcej"></p>
+            <p align="center"><input type="submit" name="choice" value="Mniej"></p>
+            <p align="center"><input type="hidden" name="min" value="{{min}}"></p>
+            <p align="center"><input type="hidden" name="max" value="{{max}}"></p>
+        </form>
+    {% endif %}
+{% else %}
+<form action="/" method="POST">
+    <p align="center"><img src="https://www.fluentu.com/blog/wp-content/uploads/2016/09/thinking-in-a-foreign-language-e1479154410182.png" width="500" height="333"></p>
+        <p align="center"><strong>Zagrajmy w grę!</strong></p>
+        <p align="center">Zasady są proste. Ty Pomyśl liczbę od <b>0</b> do <b>1000</b>. <br>
+            A ja w <b>10</b> ruchach ją zgadnę.</p>
+    <input type="hidden" name="choice" value="START">
+    <input type="hidden" name="min" value="1">
+    <input type="hidden" name="max" value="1000">
+    <p align="center"><button type="submit">Start</button></p>
+</form>
+{% endif %}
+
+
+</body>
+</html>
